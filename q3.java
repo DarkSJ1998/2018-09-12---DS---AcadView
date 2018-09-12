@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 class q3
 {
-	static int findMaxFreq(String str)
+	static char findMaxFreq(String str)
 	{
 		int i=0,len=str.length();
-		char ch;
+		char ch = str.charAt(i);
 		int freq[] = new int[26];
 		while(i<len)
 		{
@@ -20,17 +20,17 @@ class q3
 				freq[(ch-97)]++;
 			i++;
 		}
-		int max = freq[0],pos=0;
+		int max = freq[0];
 		for(i=0;i<26;i++)
 		{
 			// System.out.println((char)(i+65) + " occurs " + freq[i] + " times.");
 			if(max < freq[i])
 			{
 				max = freq[i];
-				pos = i;
+				ch = (char)(i+65);
 			}
 		}
-		return pos;
+		return ch;
 	}
 	public static void main(String[] args)
 	{
@@ -39,7 +39,7 @@ class q3
 		String str = sc.nextLine();
 		
 		System.out.println("String : " + str);
-		char max = (char)(findMaxFreq(str)+65);
+		char max = findMaxFreq(str);
 		System.out.println("Character with max frequency : '" + max + "'");
 		System.out.println();
 	}
