@@ -8,7 +8,7 @@ class q3
 {
 	static char findMaxFreq(String str)
 	{
-		int i=0,len=str.length();
+		int i=0,len=str.length(),pos=0;
 		char ch = str.charAt(i);
 		int freq[] = new int[26];
 		while(i<len)
@@ -27,9 +27,10 @@ class q3
 			if(max < freq[i])
 			{
 				max = freq[i];
-				ch = (char)(i+65);
+				pos = i;
 			}
 		}
+		ch = (char)(pos+65);
 		return ch;
 	}
 	public static void main(String[] args)
